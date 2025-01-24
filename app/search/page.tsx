@@ -44,14 +44,16 @@ export default function SearchPage() {
         }
 
         const response = await RideService.searchRides(params)
-        if (response) {
-          console.log('Rides data:', response.data)
+        if (Array.isArray(response)) {
+          console.log('Rides data:', response)
           setRides(response)
         } else {
-          console.error('API response not successful:', response)
+          console.error('Invalid API response format:', response)
+          setRides([])
         }
       } catch (error) {
         console.error('Error fetching rides:', error)
+        setRides([])
       } finally {
         setLoading(false)
       }

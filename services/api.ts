@@ -1,15 +1,39 @@
 import axios from '@/lib/axios';
 
+// Update the Ride interface to match the API response
+export interface Ride {
+  _id: string;
+  type: string;
+  pickup: {
+    location: string;
+    address: string;
+  };
+  dropoff: {
+    location: string;
+    address: string;
+  };
+  vehicleType: string;
+  date: string;
+  time: string;
+  passengers: number;
+  price: number;
+  status: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+// Update ApiResponse to include count and properly type the data
 interface ApiResponse {
   success: boolean;
-  data: any;
+  count?: number;
+  data: Ride[];
   status: number;
 }
 
 export const RideService = {
   searchRides: async (params: { type: string; pickup: string; dropoff: string }) => {
     const response = await axios.get<ApiResponse>('api/rides/search', { params });
-    return response.data;
+    return response.data;  // Return response.data directly instead of the whole response
   },
 };
 
