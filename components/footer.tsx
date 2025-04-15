@@ -81,7 +81,7 @@ export function Footer() {
                 </Link>
               ))}
             </div>
-            <p className="text-sm text-gray-400">Copyright © 2024 <span className="text-[#4169E1]">Cab Mate & Lomash Bhuva</span> | All rights reserved.</p>
+            <p className="text-sm text-gray-400">Copyright © 2024 <span className="text-[#4169E1]">Cab Mate & AbrossIT</span> | All rights reserved.</p>
           </div>
         </div>
       </div>
